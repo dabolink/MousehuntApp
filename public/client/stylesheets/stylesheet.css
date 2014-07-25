@@ -8,27 +8,6 @@ html,body{
 	float: left;
 	
 }
-#halfwidthright{
-	width: 45%;
-	float: right;
-}
-#filler{
-	height: 30vh;
-}
-#bottom{
-	height: 100vh;
-}
-#center{
-	display: block;
-	text-align: center;
-	margin: 0 auto;
-}
-.center{
-	text-align:center;
-	float:center;
-	width: 50%
-}
-.smallbuttonright{
-	width: 10%;
-	float: right;
+input.smallinput{
+	width: 90%;
 }

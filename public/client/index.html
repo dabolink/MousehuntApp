@@ -28,7 +28,91 @@
 				<h1> Main </h1>
 			</div>
 			<div data-role = "content">
-				<a href="#" id = "loginButton" data-role="button" onmouseup="function(){}">Login</a>
+				<a href="#EssenceCalc" id = "EssenceCalcB" data-role="button" onmouseup="">Essence Calculator</a>
+			</div>
+		</div>
+		<div data-role = "page" id = "EssenceCalc">
+			<div data-role = "header">
+				<h1> Main </h1>
+			</div>
+			<div data-role = "content">
+				<table border ="1" width=100%>
+					<tr>
+						<th colspan="9">
+							Essence Calculator
+						</th>
+					</tr>
+					<tr>
+						<td><center>Aleth</center></td>
+						<td><center>Ber</center></td>
+						<td><center>Cynd</center></td>
+						<td><center>Dol</center></td>
+						<td><center>Est</center></td>
+						<td><center>Fel</center></td>
+						<td><center>Gur</center></td>
+						<td><center>Hix</center></td>
+						<td><center>Icur</center></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence0">
+						</td>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence1">
+						</td>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence2">
+						</td>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence3">
+						</td>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence4">
+						</td>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence5">
+						</td>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence6">
+						</td>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence7">
+						</td>
+						<td>
+							<input type="number" class="smallinput" placeholder="0" id="Essence9">
+						</td>
+					</tr>
+					<tr height ="50" align=CENTER>
+						<td>
+							<input type="radio" name="essence" id="essence" value="0" id="EssenceSelection">
+						</td>
+						<td>
+							<input type="radio" name="essence" id="essence" value="1" id="EssenceSelection">
+						</td>
+						<td>
+							<input type="radio" name="essence" id="essence" value="2" id="EssenceSelection">
+						</td>
+						<td>
+							<input type="radio" name="essence" id="essence" value="3" id="EssenceSelection">
+						</td>
+						<td>
+							<input type="radio" name="essence" id="essence" value="4" id="EssenceSelection">
+						</td>
+						<td>
+							<input type="radio" name="essence" id="essence" value="5" id="EssenceSelection">
+						</td>
+						<td>
+							<input type="radio" name="essence" id="essence" value="6" id="EssenceSelection">
+						</td>
+						<td>
+							<input type="radio" name="essence" id="essence" value="7" id="EssenceSelection">
+						</td>
+						<td>
+							<input type="radio" name="essence" id="essence" value="8" id="EssenceSelection"checked>
+						</td>
+					</tr>
+				</table>
+				<a href="#" id = "CalculateEssenceB" data-role="button" onmouseup="calculateEssence()">Calculate</a>
 			</div>
 		</div>
 	</body>

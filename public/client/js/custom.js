@@ -2,8 +2,7 @@
  Global Variables
  ******************************************************************************************************/
 
-var apptList = [];
-var curAppt = -1;
+
 
 /*******************************************************************************************************
  Utility Functions
@@ -39,5 +38,17 @@ function serverPost(uri, keyPair, successFunction){
  ******************************************************************************************************/
 
 function initialization(){
-	
+
+}
+
+function calculateEssence(){
+	//var max = document.getElementById("EssenceSelection").value;
+	//alert(max);
+	var EssenceArray = [0,0,0,0,0,0,0,0,0]
+	for (var i = 0; i < EssenceArray.length; i++) {
+		var string = "Essence" + i.toString();
+		//alert(string);
+		EssenceArray[i] = document.getElementById(string).value;
+		//alert(EssenceArray[i]);
+	};
 }
