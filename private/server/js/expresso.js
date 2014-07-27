@@ -9,6 +9,7 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     mongoose = require('mongoose'),
     https = require('https'),
+    path = require('path'),
 	fs = require('fs');
 
 
@@ -16,9 +17,9 @@ var express = require('express'),
 														Global Variables
 *************************************************************************************************************************************/
 
-var databaseString = mongodb://generic:1234@ds041238.mongolab.com:41238/seng299,
+var databaseString = "mongodb://generic:1234@ds041238.mongolab.com:41238/seng299",
     app = express(),
-	db = mongoose.connection,
+	db = mongoose.connection
 
 /*************************************************************************************************************************************
 														Database Connection
@@ -34,70 +35,70 @@ db.once('open', function(){});
 
 var baseSchema = new mongoose.Schema({
 	Name: { type: String},
-	Power: { type: int},
-	PowerBonus: {type: int},
-	AttractionBonus: {type: int},
-	Luck: {type int},
+	Power: {type: Number},
+	PowerBonus: {type: Number},
+	AttractionBonus: {type: Number},
+	Luck: {type: Number},
 	CheeseEffect: {type: String},
 	Description: {type: String},
-	SpecialEffect: {type: boolean},
+	SpecialEffect: {type: Boolean},
 });
 
 var skinSchema = new mongoose.Schema({
-	Name:{type: String},
-	SpecialEffect{type: boolean},	
+	Name: {type: String},
+	SpecialEffect: {type: Boolean},	
 });
 
 var weaponSchema = new mongoose.Schema({
 	Name: { type: String},
-	Power: { type: int},
-	PowerBonus: {type: int},
-	AttractionBonus: {type: int},
-	Luck: {type int},
+	Power: { type: Number},
+	PowerBonus: {type: Number},
+	AttractionBonus: {type: Number},
+	Luck: {type: Number},
 	CheeseEffect: {type: String},
 	Description: {type: String},
-	SpecialEffect: {type: boolean},
+	SpecialEffect: {type: Boolean},
 	Skin: [skinSchema],
 });
 
 var chesseSchema = new mongoose.Schema({
 	Name: { type: String},
 	Description: {type: String},
-	Purchasable: {type: boolean},
-	Craftable: {type: boolean},
-	Cost: {type: int},
-	refundable: {type: boolean},
-	refundValue: {type: int},
+	Purchasable: {type: Boolean},
+	Craftable: {type: Boolean},
+	Cost: {type: Number},
+	refundable: {type: Boolean},
+	refundValue: {type: Number},
 });
 
 var charmSchema = new mongoose.Schema({
 	Name: { type: String},
-	Power: { type: int},
-	PowerBonus: {type: int},
-	AttractionBonus: {type: int},
-	Luck: {type int},
+	Power: { type: Number},
+	PowerBonus: {type: Number},
+	AttractionBonus: {type: Number},
+	Luck: {type: Number},
 	CheeseEffect: {type: String},
 	Description: {type: String},
-	SpecialEffect: {type: boolean},
+	SpecialEffect: {type: Boolean},
 	ConsumedUpon: {type: String},
 });
 var ingredientSchema = new mongoose.Schema({
 	Name: {type: String},
-	Quantity:{type: int},
+	Quantity:{type: Number},
 	Description:{type: String},
 });
 var recipeSchema = new mongoose.Schema({
-	Ingredients: [IngredientSchema],
+	Ingredients: [ingredientSchema],
 	Description: {type: String},
-	QuantityRecieved: {type: int},
+	QuantityRecieved: {type: Number},
 });
 var potionSchema = new mongoose.Schema({
 	Name: {type: String},
 	InCheese: {type: String},
-	InCheeseQuantity: {type: int},
+	InCheeseQuantity: {type: Number},
 	OutCheese: {type: String},
-	OutCheeseQuantity: {type: int},
-	Cost: {type: int},
+	OutCheeseQuantity: {type: Number},
+	Cost: {type: Number},
 });
 
 /*************************************************************************************************************************************
@@ -109,7 +110,7 @@ var weapon = mongoose.model('Weapon', weaponSchema);
 
 
 mongoose.connect(databaseString, function(error){
-	if(err){
+	if(error){
 		console.log("database connection not found");
 	}
 	else{
@@ -121,6 +122,12 @@ mongoose.connect(databaseString, function(error){
 app.use(bodyParser.json());
 app.use(express.static(__dirname));
 
+app.get('/',function(req,res){
+	var cwd = process.cwd();
+	var file = path.resolve("../../../public/client/index.html")
+	res.sendfile(file);
+	
+})
 app.get('/addBase', function(req, res){
 	var test = new base({
 		
