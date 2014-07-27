@@ -42,13 +42,36 @@ function initialization(){
 }
 
 function calculateEssence(){
-	//var max = document.getElementById("EssenceSelection").value;
-	//alert(max);
+	var max = $("input[name='essence']:checked").val();
 	var EssenceArray = [0,0,0,0,0,0,0,0,0]
-	for (var i = 0; i < EssenceArray.length; i++) {
+	var EssenceNames = ["Aleth","Ber","Cynd","Dol","Est","Fel","Hix","Gur","Icur"]
+	var i = 0;
+	for (i = 0; i < EssenceArray.length; i++) {
 		var string = "Essence" + i.toString();
-		//alert(string);
-		EssenceArray[i] = document.getElementById(string).value;
-		//alert(EssenceArray[i]);
-	};
+		EssenceArray[i] = parseInt(document.getElementById(string).value);
+	}
+	for(i = 0; i < max; i++){
+		EssenceArray[i+1] = EssenceArray[i+1] + Math.floor(EssenceArray[i]/3);
+		EssenceArray[i] = EssenceArray[i]%3;
+	}
+	var div = document.getElementById('result');
+	div.innerHTML = "";
+	var string = "<table border='1' width=100%><tr><th colspan=9>Result</th></tr><tr>"
+	for(i=0;i<EssenceNames.length;i++){
+		string += "<td><center>"
+		string += EssenceNames[i]
+		string += "</center></td>";
+	}
+	string += "<tr></tr>";
+	for(var i = 0; i< EssenceArray.length;i++){
+		string += "<td>";
+		string += "<center>"
+		string += EssenceArray[i].toString();
+		string += "</center>"
+		string += "</td>";
+	}
+	string += "</tr>";
+	string += "</table>";
+	div.innerHTML = string;
+
 }
