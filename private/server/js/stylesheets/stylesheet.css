@@ -1,0 +1,13 @@
+html,body{
+	width:100%;
+	height:100%;
+}
+
+#halfwidthleft {
+	width: 45%;
+	float: left;
+	
+}
+input.smallinput{
+	width: 90%;
+}
