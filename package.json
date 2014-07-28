@@ -1,5 +1,5 @@
 {
-  "name": "Mousehunt++",
+  "name": "MousehuntApp",
   "version": "1.0.0",
   "description": "My Mousehunt App",
   "main": "private/server/js/expresso.js",
