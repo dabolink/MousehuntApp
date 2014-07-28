@@ -1,1 +1,1 @@
-web: node 'expresso.js'
+web: node expresso.js
