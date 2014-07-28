@@ -1,1 +1,1 @@
-web: node 'expresso.js'
+web: node '/app/private/server/js/expresso.js'
