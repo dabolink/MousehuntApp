@@ -2,7 +2,7 @@
   "name": "MousehuntApp",
   "version": "1.0.0",
   "description": "My Mousehunt App",
-  "main": "private/server/js/expresso.js",
+  "main": "expresso.js",
   "dependencies": {
     "express": "^4.6.1",
     "express-session": "^1.6.5",
