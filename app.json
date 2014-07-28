@@ -1,0 +1,7 @@
+{
+  "name": "Mousehunt++",
+  "description": "My MouseHunt App",
+  "repository": "https://github.com/dabolink/MousehuntApp",
+  "logo": "",
+  "keywords": ["node", "express", "static"]
+}

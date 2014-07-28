@@ -1,0 +1,28 @@
+{
+  "name": "Mousehunt++",
+  "version": "1.0.0",
+  "description": "My Mousehunt App",
+  "main": "expresso.js",
+  "dependencies": {
+    "express": "^4.6.1",
+    "express-session": "^1.6.5",
+    "mongoose": "^3.8.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dabolink/mousehuntapp.git"
+  },
+  "keywords": [
+    "emr"
+  ],
+  "author": "dabolink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dabolink/mousehuntapp/issues"
+  },
+  "homepage": "https://github.com/dabolink/mousehuntapp"
+}
