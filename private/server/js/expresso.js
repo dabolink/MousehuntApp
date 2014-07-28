@@ -124,7 +124,7 @@ app.use(express.static(__dirname));
 
 app.get('/',function(req,res){
 	var cwd = process.cwd();
-	var file = path.resolve("../../../public/client/index.html")
+	var file = path.resolve("public/client/index.html")
 	res.sendfile(file);
 	
 })
