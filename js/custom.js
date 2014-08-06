@@ -43,6 +43,7 @@ function initialization(){
 
 function calculateEssence(){
 	var max = $("input[name='essence']:checked").val();
+	var prisms = 0;
 	var EssenceArray = [0,0,0,0,0,0,0,0,0]
 	var EssenceNames = ["Aleth","Ber","Cynd","Dol","Est","Fel","Hix","Gur","Icur"]
 	var i = 0;
@@ -52,7 +53,12 @@ function calculateEssence(){
 	}
 	for(i = 0; i < max; i++){
 		EssenceArray[i+1] = EssenceArray[i+1] + Math.floor(EssenceArray[i]/3);
+		prisms += Math.floor(EssenceArray[i]/3);
 		EssenceArray[i] = EssenceArray[i]%3;
+	}
+	for(i = EssenceArray.length - 1; i > max; i--){
+		EssenceArray[i-1] = EssenceArray[i] * 3;
+		EssenceArray[i] = 0;
 	}
 	var div = document.getElementById('result');
 	div.innerHTML = "";
@@ -72,6 +78,10 @@ function calculateEssence(){
 	}
 	string += "</tr>";
 	string += "</table>";
+	string += "<p><center> Uses "
+	string += prisms.toString()
+	string += " prisms, costing "
+	string += (prisms * 500).toString();
+	string += " gold</center>";
 	div.innerHTML = string;
-
 }
