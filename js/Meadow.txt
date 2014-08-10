@@ -1,0 +1,75 @@
+Town of Gnawnia10
+
+Windmill260
+
+Harbour510
+
+Mountain1010
+
+Slushy Shoreline1010
+
+King's Arms1060
+
+Tournament Hall1010
+
+King's Gauntlet1010
+
+Calm Clearing250
+
+Great Gnarled Tree500
+
+Lagoon1000
+
+Laboratory2010
+
+Town of Digby2510
+
+Mousoleum2510
+
+Bazaar2260
+
+Training Grounds3510
+
+Dojo3535
+
+Meditation Room3560
+
+Pinnacle Chamber3660
+
+Catacombs4010
+
+Forbidden Grove5010
+
+Acolyte Realm-1
+
+S.S Huntington III2010
+
+Zugzwang's Tower9010
+
+Crystal Library9710
+
+Iceberg4510
+
+Cape Clawed3510
+
+Elub Shore4010
+
+Nerg Plains4010
+
+Derr Dunes4010
+
+Jungle of Dread4510
+
+Dracano4510
+
+Balack's Cove4510
+
+Fiery Warpath2200
+
+Muridae Market4100
+
+Living Garden6300
+
+Lost City8650
+
+Sand Dunes8650

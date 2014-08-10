@@ -29,11 +29,12 @@
 			</div>
 			<div data-role = "content">
 				<a href="#EssenceCalc" id = "EssenceCalcB" data-role="button" onmouseup="">Essence Calculator</a>
+				<a href="#TravelPlanner" id = "TravelPlanner" data-role="button" onmouseup="">Travel Planner</a>
 			</div>
 		</div>
 		<div data-role = "page" id = "EssenceCalc">
 			<div data-role = "header">
-				<h1> Main </h1>
+				<h1> Essence Calculator </h1>
 			</div>
 			<div data-role = "content">
 				<table border ="1" width=100%>
@@ -117,5 +118,32 @@
 				</div>
 			</div>
 		</div>
+		<div data-role = "page" id = "TravelPlanner">
+			<div data-role = "header">
+				<h1> TravelPlanner </h1>
+			</div>
+			<div data-role = "content">
+				test
+			</div>
+		</div>
+		<div data-role = "page" id = "admin">
+			<div data-role = "header">
+				<h1> Admin </h1>
+			</div>
+			<div data-role = "content">
+
+				<input type="text" value="" value placeholder="Location" id="Location">
+
+				<input type="text" value="true" value placeholder="Has Shoppe?" id="HasShoppe">
+
+				<input type="text" value="" value placeholder="Destination" id="Destination">
+
+				<input type="Number" value="" value placeholder="Cost" id="Cost">
+
+				<a href ="#" id = "addDestination" data-role="button" onmouseup="addDestination()">Add Destination</a>
+				<a href ="#" id = "addTown" data-role="button" onmouseup="addTown()">Add Town</a>
+			</div>
+			<div id = "DDiv">
+			</div>
 	</body>
 </html>

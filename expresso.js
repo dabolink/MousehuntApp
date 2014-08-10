@@ -17,9 +17,9 @@ var express = require('express'),
 														Global Variables
 *************************************************************************************************************************************/
 
-var databaseString = "mongodb://generic:1234@ds041238.mongolab.com:41238/seng299",
+var databaseString = "mongodb://generic:1234@ds053419.mongolab.com:53419/mousehunt",
     app = express(),
-	db = mongoose.connection
+	db = mongoose.connection;
 
 /*************************************************************************************************************************************
 														Database Connection
@@ -28,6 +28,9 @@ var databaseString = "mongodb://generic:1234@ds041238.mongolab.com:41238/seng299
 	
 db.on('error', console.error);
 db.once('open', function(){});
+
+app.use(bodyParser.json());
+app.use(express.static(__dirname));
 
 /*************************************************************************************************************************************
 														SCHEMAS
@@ -100,14 +103,22 @@ var potionSchema = new mongoose.Schema({
 	OutCheeseQuantity: {type: Number},
 	Cost: {type: Number},
 });
+var townSchema = new mongoose.Schema({
+	Name: {type: String},
+	HasShoppe: {type: Boolean},
+	Paths: [{
+		Destination: String,
+		Cost: Number,
+	}]
+})
 
 /*************************************************************************************************************************************
 														Global DataBase Variables
 *************************************************************************************************************************************/
 
-var base = mongoose.model('Base', baseSchema);
-var weapon = mongoose.model('Weapon', weaponSchema);
-
+var Base = mongoose.model('Base', baseSchema);
+var Weapon = mongoose.model('Weapon', weaponSchema);
+var Town = mongoose.model('Town', townSchema);
 
 mongoose.connect(databaseString, function(error){
 	if(error){
@@ -118,24 +129,11 @@ mongoose.connect(databaseString, function(error){
 	}
 });
 
-
-app.use(bodyParser.json());
-app.use(express.static(__dirname));
-
 app.get('/',function(req,res){
 	var cwd = process.cwd();
 	var file = path.resolve("public/client/index.html")
 	res.sendfile(file);
 	
-})
-app.get('/addBase', function(req, res){
-	var test = new base({
-		
-	}); 
-	test.save(function(err){
-		if(err) return console.error(err);
-		res.json(200, {message: 'true'});
-	});
 });
 
 //Create the server on port 3000
@@ -154,4 +152,62 @@ var server = app.listen(process.env.PORT || 3000, function() {
 
 app.post('/', function(req, res, next){
     res.json(200, {message: 'You\'re a wizard, Harry'});
+});
+
+app.post('/addBase', function(req, res){
+	var test = new base({
+		
+	}); 
+	test.save(function(err){
+		if(err) return console.error(err);
+		res.json(200, {message: 'true'});
+	});
+});
+
+app.post('/getTowns',function(req,res,next){
+	Town.find(function(err,obj){
+		if(err){
+			console.log(err);
+		}
+		else{
+			var temp = [];
+			for(i = 0; i < obj.length; i++){
+				temp.push({
+					Location: obj[i].Name,
+					HasShoppe: obj[i].HasShoppe,
+					Paths: obj[i].Paths,
+				});
+			}
+			res.json(200,{Towns: temp});
+			//return all towns in an array
+		}
+	});
+});
+
+/*************************************************************************************************************************************
+														AdminServerPost Methods
+*************************************************************************************************************************************/
+
+app.post('/addTown',function(req,res,next){
+	var Paths = [];
+	for(var p = 0; p < req.body.Paths.length; p++){
+		//console.log(Paths[p].Destination + " " + Paths[p].Cost);
+		//console.log(req.body.Paths)
+		Paths.push({Destination: req.body.Paths[p].Destination, Cost: req.body.Paths[p].Cost});
+	}
+	var test = new Town({
+		Name: req.body.Name,
+		HasShoppe: req.body.HasShoppe,
+		Paths: Paths,
+	});
+	//console.log(test);
+	test.save(function(err){
+		if(err){
+			return console.error(err);
+			res.json(200, {message: 'false'});
+		}
+		else{
+			res.json(200, {message: 'true'});
+		}
+	});
 });
